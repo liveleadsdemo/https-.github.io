@@ -1,0 +1,56 @@
+let timer = 0;
+const timerElement = document.getElementById("timer");
+const listContainer = document.getElementById("list-container");
+const refreshBtn = document.getElementById("refreshBtn");
+
+// Initial demo listings
+let listings = [
+    {title: "BMW 320d 2019", price: "€14,500", phone: "0891234567"},
+    {title: "Audi A4 2020", price: "€16,200", phone: "0876543210"},
+    {title: "VW Golf 2018", price: "€11,900", phone: "0869876543"}
+];
+
+// Timer update every second
+setInterval(() => {
+    timer++;
+    timerElement.textContent = timer;
+}, 1000);
+
+// Display all listings
+function displayListings() {
+    listContainer.innerHTML = "";
+    listings.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "list-item";
+        div.innerHTML = `
+            ${item.title} | ${item.price} | 
+            <a href="tel:${item.phone}">📞 Call</a>
+        `;
+        listContainer.appendChild(div);
+    });
+}
+
+// Add a new listing (simulate instant new item)
+function addNewListing() {
+    const newItems = [
+        {title: "Mercedes C200 2021", price: "€18,500", phone: "0899988776"},
+        {title: "Toyota Corolla 2019", price: "€12,300", phone: "0871122334"},
+        {title: "Ford Focus 2018", price: "€10,900", phone: "0864455667"}
+    ];
+    const randomItem = newItems[Math.floor(Math.random() * newItems.length)];
+    listings.unshift(randomItem); // newest on top
+    displayListings();
+}
+
+// Manual refresh button
+refreshBtn.addEventListener("click", () => {
+    addNewListing();
+});
+
+// Auto add a new listing every 10 seconds
+setInterval(() => {
+    addNewListing();
+}, 10000);
+
+// Initial display
+displayListings();
