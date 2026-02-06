@@ -52,5 +52,5 @@ setInterval(() => {
     addNewListing();
 }, 10000);
 
-// Initial display
+// Initial display 
 displayListings();
