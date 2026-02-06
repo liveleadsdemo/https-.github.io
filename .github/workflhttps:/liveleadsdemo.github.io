@@ -6,7 +6,7 @@ let seconds = 0;
 
 // Demo listings
 let listings = [
-  { title: "BMW 320d 2019 – Dublin", price: "€14,500", phone: "0891234567" },
+  { title: "BMW 320d 2019 – Dublin", price: "€14,500", phone: "+353 86 458 5199" },
   { title: "Audi A4 2020 – Cork", price: "€16,200", phone: "0876543210" },
   { title: "VW Golf 2018 – Galway", price: "€11,900", phone: "0869876543" }
 ];
